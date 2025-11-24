@@ -9,30 +9,52 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 30px;
+    text-align: center;
 }
 
 img {
-    max-width: 1000px;
+    width: 50vh;
+    height: 50vh;
 }
 
 #last-sock-container {
     position: relative;
+    width: 50vh;
+    height: 50vh;
+}
+
+#last-sock-container>img {
+    position: absolute;
+    left: 0%;
+    top: 0%;
     width: 100%;
     height: 100%;
 }
 
-#last-sock-container > img {
-    position: absolute;
-    top: 0%;
-    transition: opacity 0.3s ease-out;
-}
-
 #sock {
     opacity: 1;
+    animation: fadeAnimation;
+    animation-timeline: view();
+    animation-range: entry 50% cover 60%;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
 }
 
 #stocking {
     opacity: 0;
+    animation: fadeAnimation;
+    animation-timeline: view();
+    animation-range: entry 50% cover 60%;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .switch {
@@ -40,7 +62,7 @@ img {
     display: inline-block;
     width: 160px;
     height: 88px;
-    margin-bottom: 300px;
+    margin-top: 5vh;
 }
 
 .switch input {
@@ -52,9 +74,9 @@ img {
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0; 
-    left: 0; 
-    right: 0; 
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
     background: #c62828;
     transition: 0.4s;
@@ -73,11 +95,11 @@ img {
     transition: 0.4s;
 }
 
-input:checked + .slider{
+input:checked+.slider {
     background-color: #0a5c0a;
 }
 
-input:checked + .slider::before {
+input:checked+.slider::before {
     transform: translateX(72px);
 }
 
